@@ -162,8 +162,57 @@ const About = () => {
         </div>
       </section>
 
-      {/* Visual Identity & Brand */}
+      {/* No Ateliê Section */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-semplicita text-3xl lg:text-4xl font-light text-deep-black mb-4">
+              No Ateliê
+            </h2>
+            <p className="font-helvetica text-lg text-deep-black/70 max-w-2xl mx-auto">
+              Mergulhe no universo criativo da artista e conheça o processo por trás de cada obra
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {/* Materiais de Arte */}
+            <div className="group cursor-pointer">
+              <div className="h-80 w-full overflow-hidden rounded-2xl shadow-elegant bg-soft-beige">
+                <img
+                  src="/lovable-uploads/3c77c27d-9ab8-402d-af0c-92914ecf2cd9.png"
+                  alt="Materiais de arte - tintas e pincéis"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            
+            {/* Artista Trabalhando */}
+            <div className="group cursor-pointer">
+              <div className="h-80 w-full overflow-hidden rounded-2xl shadow-elegant bg-soft-beige">
+                <img
+                  src="/lovable-uploads/ce237e42-1e57-4a47-84fb-9b4c8042dd96.png"
+                  alt="Simone Oliveira pintando em seu ateliê"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            
+            {/* Processo Criativo */}
+            <div className="group cursor-pointer">
+              <div className="h-80 w-full overflow-hidden rounded-2xl shadow-elegant bg-soft-beige">
+                <img
+                  src="/lovable-uploads/46d52c97-6c40-4984-b6b2-229797103846.png"
+                  alt="Processo criativo - aplicação de tinta"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Identity & Brand */}
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gentle-green/10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <div>

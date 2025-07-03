@@ -76,6 +76,13 @@ const ArtworkModal = ({ artwork, onClose }: ArtworkModalProps) => {
                   </div>
                 )}
                 
+                {artwork.exhibition_id && (
+                  <div>
+                    <span className="font-helvetica text-sm font-medium text-deep-black/70">Exposição:</span>
+                    <p className="font-helvetica text-deep-black">Obra de exposição</p>
+                  </div>
+                )}
+                
                 {artwork.description && (
                   <div>
                     <span className="font-helvetica text-sm font-medium text-deep-black/70">Descrição:</span>
