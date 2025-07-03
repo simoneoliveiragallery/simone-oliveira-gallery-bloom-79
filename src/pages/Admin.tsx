@@ -372,23 +372,39 @@ const Admin = () => {
                         </select>
                       </div>
 
-                      <div>
-                        <label className="flex items-center space-x-3">
-                          <input
-                            type="checkbox"
-                            checked={artworkFormData.featured || false}
-                            onChange={(e) => setArtworkFormData({ ...artworkFormData, featured: e.target.checked })}
-                            className="w-5 h-5 text-warm-terracotta bg-soft-beige border-gentle-green/30 rounded focus:ring-2 focus:ring-warm-terracotta/20"
-                          />
-                          <span className="font-helvetica text-sm font-medium text-deep-black">
-                            <Star size={16} className="inline mr-1 text-warm-terracotta" />
-                            Obra em destaque (máximo 6)
-                          </span>
-                        </label>
-                        <p className="font-helvetica text-xs text-deep-black/60 mt-1">
-                          Obras em destaque aparecem na página inicial
-                        </p>
-                      </div>
+                       <div>
+                         {(() => {
+                           const featuredCount = artworks.filter(a => a.featured).length;
+                           const currentlyFeatured = artworkFormData.featured || false;
+                           const isEditingFeatured = editingArtworkId && artworks.find(a => a.id === editingArtworkId)?.featured;
+                           const canAddFeatured = featuredCount < 6 || currentlyFeatured || isEditingFeatured;
+                           
+                           return (
+                             <label className="flex items-center space-x-3">
+                               <input
+                                 type="checkbox"
+                                 checked={currentlyFeatured}
+                                 onChange={(e) => {
+                                   if (!e.target.checked || canAddFeatured) {
+                                     setArtworkFormData({ ...artworkFormData, featured: e.target.checked });
+                                   } else {
+                                     toast.error('Máximo de 6 obras podem estar em destaque');
+                                   }
+                                 }}
+                                 disabled={!canAddFeatured && !currentlyFeatured}
+                                 className="w-5 h-5 text-warm-terracotta bg-soft-beige border-gentle-green/30 rounded focus:ring-2 focus:ring-warm-terracotta/20 disabled:opacity-50"
+                               />
+                               <span className="font-helvetica text-sm font-medium text-deep-black">
+                                 <Star size={16} className="inline mr-1 text-warm-terracotta" />
+                                 Obra em destaque ({featuredCount}/6)
+                               </span>
+                             </label>
+                           );
+                         })()}
+                         <p className="font-helvetica text-xs text-deep-black/60 mt-1">
+                           Obras em destaque aparecem na página inicial
+                         </p>
+                       </div>
                       
                       <div>
                         <label className="block font-helvetica text-sm font-medium text-deep-black mb-2">
