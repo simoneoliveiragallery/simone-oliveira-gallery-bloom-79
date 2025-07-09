@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { BsWhatsapp } from "react-icons/bs";
 
 const Contact = () => {
-  const whatsappNumber = "553491101000";
+  const whatsappNumber = "5534991101000";
   const email = "gallery@simoneoliveiragallery.com";
 
   const handleWhatsApp = () => {
@@ -71,7 +71,7 @@ const Contact = () => {
                         onClick={handleWhatsApp}
                         className="font-helvetica text-deep-black/70 hover:text-green-500 transition-colors"
                       >
-                        (34) 9110-1000
+                        (34) 99110-1000
                       </button>
                     </div>
                   </div>

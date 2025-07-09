@@ -37,7 +37,7 @@ const Footer = () => {
                 <Twitter size={20} />
               </a>
               <a 
-                href="https://wa.me/553491101000"
+                href="https://wa.me/5534991101000"
                 className="text-gray-400 hover:text-green-500 transition-colors duration-300"
                 aria-label="WhatsApp"
                 target="_blank"
@@ -66,8 +66,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <BsWhatsapp size={16} className="text-green-500 flex-shrink-0" />
-                <a href="https://wa.me/553491101000" className="text-gray-300 text-sm hover:text-green-500 transition-colors">
-                  (34) 9110-1000
+                <a href="https://wa.me/5534991101000" className="text-gray-300 text-sm hover:text-green-500 transition-colors">
+                  (34) 99110-1000
                 </a>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { Mail } from 'lucide-react';
 import { BsWhatsapp } from "react-icons/bs";
 
 const FloatingContactButtons = () => {
-  const whatsappNumber = "553491101000";
+  const whatsappNumber = "5534991101000";
   const email = "gallery@simoneoliveiragallery.com";
   
   const handleWhatsApp = () => {

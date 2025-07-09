@@ -14,6 +14,7 @@ const Index = () => {
     x: 0,
     y: 0
   });
+  const [logoVisible, setLogoVisible] = useState(true);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -32,18 +33,30 @@ const Index = () => {
     }
   }, [isMobile]);
 
+  // Handle logo visibility on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const logoHeight = 200; // Approximate height of logo section
+      setLogoVisible(scrollPosition < logoHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const stats = [{
     icon: Eye,
     label: 'Obras Criadas',
-    value: '35+'
+    value: '+50'
   }, {
     icon: Users,
     label: 'Colecionadores',
-    value: '15+'
+    value: '+25'
   }, {
     icon: Sparkles,
-    label: 'Exposições',
-    value: '4'
+    label: 'Anos de Carreira',
+    value: '+20'
   }];
 
   return (
@@ -79,13 +92,14 @@ const Index = () => {
         )}
 
         <div className={`z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto ${isLoaded ? 'hero-reveal' : 'opacity-0'}`}>
-          {/* Brand Identity - Compact */}
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h1 className="font-semplicita text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-deep-black mb-2 sm:mb-3 tracking-wide leading-tight">
-              Simone Oliveira
-            </h1>
-            <div className="art-gallery-tag text-base sm:text-lg md:text-xl lg:text-2xl text-warm-terracotta mb-3 sm:mb-4 md:mb-6">
-              Art Gallery
+          {/* Brand Identity - Logo */}
+          <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-500 ${logoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
+            <div className="mb-3 sm:mb-4 md:mb-6">
+              <img
+                src="/lovable-uploads/LOGO-SIMONE-OLIVEIRA-ART.png"
+                alt="Simone Oliveira Art Gallery"
+                className="mx-auto h-20 sm:h-32 md:h-40 lg:h-48 w-auto object-contain"
+              />
             </div>
 
             <p className="font-helvetica text-sm sm:text-base md:text-lg text-deep-black/80 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed font-light text-center px-2">

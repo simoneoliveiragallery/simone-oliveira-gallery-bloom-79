@@ -12,7 +12,7 @@ interface ArtworkModalProps {
 const ArtworkModal = ({ artwork, onClose }: ArtworkModalProps) => {
   if (!artwork) return null;
 
-  const whatsappNumber = "553491101000";
+  const whatsappNumber = "5534991101000";
   const email = "gallery@simoneoliveiragallery.com";
 
   const handleWhatsApp = () => {
@@ -59,14 +59,21 @@ const ArtworkModal = ({ artwork, onClose }: ArtworkModalProps) => {
               </h3>
               
               <div className="space-y-3">
-                <div>
-                  <span className="font-helvetica text-sm font-medium text-deep-black/70">Ano:</span>
-                  <p className="font-helvetica text-deep-black">{artwork.year}</p>
-                </div>
+                {artwork.description && (
+                  <div>
+                    <span className="font-helvetica text-sm font-medium text-deep-black/70">Descrição:</span>
+                    <p className="font-helvetica text-deep-black leading-relaxed">{artwork.description}</p>
+                  </div>
+                )}
                 
                 <div>
                   <span className="font-helvetica text-sm font-medium text-deep-black/70">Técnica:</span>
                   <p className="font-helvetica text-deep-black">{artwork.medium}</p>
+                </div>
+                
+                <div>
+                  <span className="font-helvetica text-sm font-medium text-deep-black/70">Ano:</span>
+                  <p className="font-helvetica text-deep-black">{artwork.year}</p>
                 </div>
                 
                 {artwork.dimensions && (
@@ -80,13 +87,6 @@ const ArtworkModal = ({ artwork, onClose }: ArtworkModalProps) => {
                   <div>
                     <span className="font-helvetica text-sm font-medium text-deep-black/70">Exposição:</span>
                     <p className="font-helvetica text-deep-black">Obra de exposição</p>
-                  </div>
-                )}
-                
-                {artwork.description && (
-                  <div>
-                    <span className="font-helvetica text-sm font-medium text-deep-black/70">Descrição:</span>
-                    <p className="font-helvetica text-deep-black leading-relaxed">{artwork.description}</p>
                   </div>
                 )}
               </div>

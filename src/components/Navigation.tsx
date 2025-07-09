@@ -38,6 +38,10 @@ const Navigation = () => {
         } else {
           setNavVisible(true);
         }
+      } else {
+        // On desktop, show logo in nav only after main logo disappears
+        const logoHeight = 200;
+        setNavVisible(currentScrollY > logoHeight);
       }
       setLastScrollY(currentScrollY);
     };
@@ -76,8 +80,8 @@ const Navigation = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${!navVisible && isMobile ? '-translate-y-full' : 'translate-y-0'} ${scrolled ? 'bg-soft-beige/95 border-b border-gentle-green/20 shadow-elegant backdrop-blur-xl' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20">
-            <Link to="/" className="flex items-center hover:scale-105 transition-all duration-300 touch-manipulation" onClick={handleLinkClick}>
-              <img src="/lovable-uploads/f7610aad-7574-485c-9ec0-65d3fe11250b.png" alt="Simone Oliveira Art Gallery" className="h-10 sm:h-12 lg:h-16 w-auto object-contain" />
+            <Link to="/" className={`flex items-center hover:scale-105 transition-all duration-500 touch-manipulation ${navVisible || isMobile ? 'opacity-100' : 'opacity-0'}`} onClick={handleLinkClick}>
+              <img src="/lovable-uploads/LOGO-SIMONE-OLIVEIRA-ART.png" alt="Simone Oliveira Art Gallery" className="h-10 sm:h-12 lg:h-16 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation */}
